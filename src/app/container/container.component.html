@@ -1,0 +1,99 @@
+<!-- <div class="container-fluid">
+    <div class="row">
+         ----card1---- --
+        <div class="card col offset-1 m-4 p-4 bg-dark text-white" style="width: 250px">
+            <img src="../../assets/iphone13.jpg" class="card-img-top" alt="...">
+            <p class=" ">Name: {{name}}</p>
+            <p class=" ">Price: ${{price}}</p>
+            <p class="">color: {{color}}</p>
+            <p class="">Discounted price: ${{disprice}}</p>
+            <button type="button" class="btn btn-outline-primary">Add to cart</button>
+        </div>
+         ----card2---- 
+        <div class="card  col offset-1 m-4 p-4 bg-dark text-white" style="width: 250px">
+            <img src="../../assets/iphone13.jpg" class="card-img-top" alt="...">
+
+            <p class="">Name: {{product.name}}</p>
+            <p class="">Price: ${{product.price}}</p>
+            <p class="">color: {{product.color}}</p>
+            <p class="">Discounted price: ${{product.price - (product.price * product.disper/100)}}</p>
+            <button type="button" class="btn btn-outline-primary">Add to cart</button>
+
+        </div>
+        ----card3---- 
+        <div class="card  col offset-1 m-4 p-4 bg-dark text-white" style="width: 250px">
+            <img src="../../assets/iphone13.jpg" class="card-img-top" alt="...">
+
+            <p class="">Name: {{product1.name}}</p>
+            <p class="">Price: ${{product1.price}}</p>
+            <p class="">color: {{product1.color}}</p>
+
+            <p class="">Discounted price: ${{ getdiscountedprice().toFixed(2) }}</p>
+            <button type="button" class="btn btn-outline-primary">Add to cart</button>
+
+        </div>
+
+       ----card4----
+        <div class="card  col offset-1 m-4  p-4 bg-dark text-white" style="width: 250px ">
+            <img [src]="product2.pImage" class="card-img-top" alt="...">
+
+            <p class="">Name: {{product1.name}}</p>
+            <p class="">Price: ${{product1.price}}</p>
+            <p class="">color: {{product1.color}}</p>
+            <p class="">Discounted price: ${{ getdiscountedprice().toFixed(2) }}</p>
+            <p class="">instock: {{product2.instock>0 ?'INSTOCK'+ product2.instock +' left':'Out of stock product'}}</p>
+            <button type="button" [disabled]="!(product2.instock > 0)" class="btn btn-outline-primary">Add to cart</button>
+
+        </div>
+          ----card5----
+         <div class="card  col offset-1 m-4  p-4 bg-dark text-white" style="width: 250px ">
+            <img [src]="product2.pImage" class="card-img-top" alt="...">
+
+            <p class="">Name: {{product1.name}}</p>
+            <p class="">Price: ${{product1.price}}</p>
+            <p class="">color: {{product1.color}}</p>
+            <p class="">Discounted price: ${{ getdiscountedprice().toFixed(2) }}</p>
+            <p class="">instock: {{product2.instock>0 ?'INSTOCK'+ product2.instock +' left':'Out of stock product'}}</p>
+            <button type="button" (click)="incrementCartValue()" class="btn btn-outline-primary">Add to cart</button>
+            <span class="text-center p-1 m-1 bg-secondary rounded-pill">{{addCartValue}}</span>
+            <button type="button" (click)="decrementCartValue()" class="btn btn-outline-primary">Remove from cart</button>
+
+        </div>
+
+    </div>
+    <input (input)="onNameChange($event)"><br>
+    <p>product name={{product2.name}}</p>
+</div> -->
+<div class="ekart--product--container">
+    <!-- <app-search ></app-search>
+    <div *ngFor=" let item of [2,3,5,4,5,]">
+        <p>Current element is:{{item}}</p>
+
+    </div>
+    <div *ngFor="let item of listofstring">
+        <p>Current string is:{{item}}</p>
+
+    </div> -->
+    <app-search (searchTextChanged)="setSearchText($event)"></app-search>
+    <!-- <app-carousel></app-carousel> -->
+    <product-list [searchText]="searchText" #productListComponent></product-list>
+    <product-detail *ngIf="productListComponent.selectedProduct"
+        [productListComp]="productListComponent"></product-detail>
+        <div class="ekart-featured-products">
+            <div class="ekart-featured-product-heading">
+                <h1>Latest Arrival in Popular Brands</h1>
+            </div>
+         <featured-brands>
+            <h3 class="title">New Arrivals in Nike</h3>
+            <button class="call-to-action">Show New Arrival in Nike</button>
+         </featured-brands>
+         <featured-brands>
+            <h3 class="title">New Arrivals in Adidas</h3>
+            <button class="call-to-action">Show New Arrival Adidas</button>
+         </featured-brands> 
+         <featured-brands>
+            <h3 class="title">New Arrivals in Reebok</h3>
+            <button class="call-to-action">Show New Arrival in Reebok</button>
+         </featured-brands>
+        </div>
+</div>
